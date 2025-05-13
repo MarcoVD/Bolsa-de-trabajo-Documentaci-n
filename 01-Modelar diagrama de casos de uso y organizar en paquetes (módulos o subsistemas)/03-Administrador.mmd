@@ -1,0 +1,148 @@
+classDiagram
+
+class CU_A_1 {
+  Gestión de Usuarios
+  <<Caso de Uso>>
+}
+
+class CU_A_1_1 {
+  Crear Usuario
+  <<Caso de Uso>>
+}
+
+class CU_A_1_2 {
+  Editar Usuario
+  <<Caso de Uso>>
+}
+
+class CU_A_1_3 {
+  Eliminar Usuario
+  <<Caso de Uso>>
+}
+
+class CU_A_1_4 {
+  Activar/Desactivar Usuario
+  <<Caso de Uso>>
+}
+
+class CU_A_1_5 {
+  Asignar Roles
+  <<Caso de Uso>>
+}
+
+class CU_A_1_6 {
+  Ver Lista de Usuarios
+  <<Caso de Uso>>
+}
+
+class CU_A_2 {
+  Gestión de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_A_2_1 {
+  Ver Todas las Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_A_2_2 {
+  Aprobar/Rechazar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_A_2_3 {
+  Editar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_A_2_4 {
+  Eliminar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_A_2_5 {
+  Destacar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_A_3 {
+  Gestión de Categorías y Habilidades
+  <<Caso de Uso>>
+}
+
+class CU_A_3_1 {
+  Gestionar Categorías de Trabajo
+  <<Caso de Uso>>
+}
+
+class CU_A_3_2 {
+  Gestionar Habilidades
+  <<Caso de Uso>>
+}
+
+class CU_A_3_3 {
+  Asignar Habilidades a Categorías
+  <<Caso de Uso>>
+}
+
+class CU_A_4 {
+  Reportes y Estadísticas
+  <<Caso de Uso>>
+}
+
+class CU_A_4_1 {
+  Generar Reportes de Usuarios
+  <<Caso de Uso>>
+}
+
+class CU_A_4_2 {
+  Generar Reportes de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_A_4_3 {
+  Generar Reportes de Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_A_4_4 {
+  Personalizar Reportes
+  <<Caso de Uso>>
+}
+
+class CU_A_4_5 {
+  Exportar Reportes
+  <<Caso de Uso>>
+}
+
+class Administrador {
+  <<Actor>>
+}
+
+Administrador --> CU_A_1
+Administrador --> CU_A_2
+Administrador --> CU_A_3
+Administrador --> CU_A_4
+
+CU_A_1 --> CU_A_1_1
+CU_A_1 --> CU_A_1_2
+CU_A_1 --> CU_A_1_3
+CU_A_1 --> CU_A_1_4
+CU_A_1 --> CU_A_1_5
+CU_A_1 --> CU_A_1_6
+
+CU_A_2 --> CU_A_2_1
+CU_A_2 --> CU_A_2_2
+CU_A_2 --> CU_A_2_3
+CU_A_2 --> CU_A_2_4
+CU_A_2 --> CU_A_2_5
+
+CU_A_3 --> CU_A_3_1
+CU_A_3 --> CU_A_3_2
+CU_A_3 --> CU_A_3_3
+
+CU_A_4 --> CU_A_4_1
+CU_A_4 --> CU_A_4_2
+CU_A_4 --> CU_A_4_3
+CU_A_4 --> CU_A_4_4
+CU_A_4 --> CU_A_4_5

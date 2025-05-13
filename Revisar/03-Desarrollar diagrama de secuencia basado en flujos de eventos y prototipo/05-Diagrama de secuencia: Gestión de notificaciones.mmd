@@ -1,0 +1,60 @@
+sequenceDiagram
+    actor UI as Usuario Interesado
+    participant S as Sistema
+    participant BD as Base de Datos
+    participant E as Servidor Email
+    participant R as Reclutador
+    
+    %% Configuración de notificaciones
+    UI->>S: Accede a configuración de notificaciones
+    S->>BD: Consulta preferencias actuales
+    BD->>S: Retorna preferencias
+    S->>UI: Muestra opciones de configuración
+    UI->>S: Actualiza preferencias de notificaciones
+    S->>BD: Guarda nuevas preferencias
+    BD->>S: Confirma guardado
+    S->>UI: Notifica actualización exitosa
+    
+    %% Notificación de nuevas vacantes (flujo automático)
+    Note over S,BD: Proceso programado (diario)
+    S->>BD: Consulta vacantes nuevas que coinciden con búsquedas guardadas
+    BD->>S: Retorna vacantes coincidentes
+    S->>BD: Consulta usuarios interesados con notificaciones activadas
+    BD->>S: Retorna lista de usuarios
+    S->>E: Solicita envío de correos con nuevas vacantes
+    E->>UI: Envía correo de notificación
+    
+    %% Notificación de cambio de estado en postulación
+    R->>S: Actualiza estado de postulación
+    S->>BD: Guarda nuevo estado
+    BD->>S: Confirma guardado
+    S->>BD: Consulta preferencias de notificación del usuario
+    BD->>S: Retorna preferencias
+    
+    alt Notificaciones activadas
+        S->>E: Solicita envío de correo de actualización
+        E->>UI: Envía correo de cambio de estado
+        S->>UI: Muestra notificación en plataforma
+    else Notificaciones desactivadas
+        S->>UI: Solo muestra notificación en plataforma
+    end
+    
+    %% Notificación de modificación de vacante postulada
+    R->>S: Modifica/Elimina vacante
+    S->>BD: Actualiza información de vacante
+    BD->>S: Confirma actualización
+    S->>BD: Consulta postulantes a la vacante
+    BD->>S: Retorna lista de postulantes
+    
+    loop Para cada postulante
+        S->>BD: Consulta preferencias de notificación
+        BD->>S: Retorna preferencias
+        
+        alt Notificaciones activadas
+            S->>E: Solicita envío de correo informativo
+            E->>UI: Envía correo de modificación/eliminación
+            S->>UI: Muestra notificación en plataforma
+        else Notificaciones desactivadas
+            S->>UI: Solo muestra notificación en plataforma
+        end
+    end

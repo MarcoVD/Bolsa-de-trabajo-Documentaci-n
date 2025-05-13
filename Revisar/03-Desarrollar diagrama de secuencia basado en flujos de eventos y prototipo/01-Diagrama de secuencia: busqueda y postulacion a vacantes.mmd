@@ -1,0 +1,28 @@
+sequenceDiagram
+    actor UI as Usuario Interesado
+    participant S as Sistema
+    participant BD as Base de Datos
+    participant R as Reclutador
+    
+    UI->>S: Solicita búsqueda de vacantes
+    S->>UI: Muestra formulario de búsqueda
+    UI->>S: Ingresa criterios de búsqueda
+    S->>BD: Consulta vacantes según criterios
+    BD->>S: Retorna resultados
+    S->>UI: Muestra lista de vacantes
+    UI->>S: Selecciona una vacante
+    S->>BD: Consulta detalles de vacante
+    BD->>S: Retorna detalles
+    S->>UI: Muestra detalles de la vacante
+    UI->>S: Decide postularse
+    S->>UI: Solicita seleccionar CV y carta presentación
+    UI->>S: Selecciona CV y envía carta
+    S->>BD: Registra postulación
+    BD->>S: Confirma registro
+    S->>UI: Confirma postulación exitosa
+    S->>R: Notifica nueva postulación
+    R->>S: Revisa postulación
+    R->>S: Actualiza estado (Ej: "En revisión")
+    S->>BD: Guarda cambio de estado
+    BD->>S: Confirma actualización
+    S->>UI: Notifica cambio de estado

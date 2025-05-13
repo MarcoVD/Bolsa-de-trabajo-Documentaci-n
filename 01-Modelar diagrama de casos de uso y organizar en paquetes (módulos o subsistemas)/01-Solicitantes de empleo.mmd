@@ -1,0 +1,156 @@
+classDiagram
+
+class CU_I_1 {
+  Gestión de Perfil del Interesado
+  <<Caso de Uso>>
+}
+
+class CU_I_1_1 {
+  Registrarse en el Sistema
+  <<Caso de Uso>>
+}
+
+class CU_I_1_2 {
+  Iniciar Sesión
+  <<Caso de Uso>>
+}
+
+class CU_I_1_3 {
+  Recuperar Contraseña
+  <<Caso de Uso>>
+}
+
+class CU_I_1_4 {
+  Cerrar Sesión
+  <<Caso de Uso>>
+}
+
+class CU_I_2 {
+  Gestión del Currículum Vitae
+  <<Caso de Uso>>
+}
+
+class CU_I_2_1 {
+  Crear/Editar CV
+  <<Caso de Uso>>
+}
+
+class CU_I_2_2 {
+  Previsualizar CV
+  <<Caso de Uso>>
+}
+
+class CU_I_3 {
+  Búsqueda de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_I_3_1 {
+  Buscar por Palabras Clave
+  <<Caso de Uso>>
+}
+
+class CU_I_3_2 {
+  Filtrar Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_I_3_3 {
+  Ordenar Resultados
+  <<Caso de Uso>>
+}
+
+class CU_I_3_4 {
+  Guardar Búsquedas
+  <<Caso de Uso>>
+}
+
+class CU_I_4 {
+  Postulación a Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_I_4_1 {
+  Postularse con CV
+  <<Caso de Uso>>
+}
+
+class CU_I_4_2 {
+  Ver Estado de Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_I_4_3 {
+  Retirar Postulación
+  <<Caso de Uso>>
+}
+
+class CU_I_5 {
+  Gestión de Vacantes Guardadas
+  <<Caso de Uso>>
+}
+
+class CU_I_5_1 {
+  Guardar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_I_5_2 {
+  Ver Vacantes Guardadas
+  <<Caso de Uso>>
+}
+
+class CU_I_5_3 {
+  Eliminar Vacante Guardada
+  <<Caso de Uso>>
+}
+
+class CU_I_6 {
+  Gestión de Notificaciones
+  <<Caso de Uso>>
+}
+
+class CU_I_6_1 {
+  Configurar Notificaciones
+  <<Caso de Uso>>
+}
+
+class CU_I_6_2 {
+  Ver Notificaciones
+  <<Caso de Uso>>
+}
+
+class Interesado {
+  <<Actor>>
+}
+
+Interesado --> CU_I_1
+Interesado --> CU_I_2
+Interesado --> CU_I_3
+Interesado --> CU_I_4
+Interesado --> CU_I_5
+Interesado --> CU_I_6
+
+CU_I_1 --> CU_I_1_1
+CU_I_1 --> CU_I_1_2
+CU_I_1 --> CU_I_1_3
+CU_I_1 --> CU_I_1_4
+
+CU_I_2 --> CU_I_2_1
+CU_I_2 --> CU_I_2_2
+
+CU_I_3 --> CU_I_3_1
+CU_I_3 --> CU_I_3_2
+CU_I_3 --> CU_I_3_3
+CU_I_3 --> CU_I_3_4
+
+CU_I_4 --> CU_I_4_1
+CU_I_4 --> CU_I_4_2
+CU_I_4 --> CU_I_4_3
+
+CU_I_5 --> CU_I_5_1
+CU_I_5 --> CU_I_5_2
+CU_I_5 --> CU_I_5_3
+
+CU_I_6 --> CU_I_6_1
+CU_I_6 --> CU_I_6_2

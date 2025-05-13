@@ -1,0 +1,57 @@
+
+flowchart TD
+    subgraph "Gestión de Perfil del Interesado"
+        A1[Inicio] --> A2{¿Usuario registrado?}
+        A2 -->|No| A3[Registrarse]
+        A2 -->|Sí| A4[Iniciar sesión]
+        A3 --> A5[Completar formulario de registro]
+        A5 --> A6[Sistema valida datos]
+        A6 -->|Datos válidos| A7[Enviar correo de confirmación]
+        A6 -->|Datos inválidos| A5
+        A7 --> A4
+        A4 --> A8[Acceder al dashboard]
+    end
+    
+    subgraph "Gestión del CV"
+        A8 --> B1{¿Tiene CV creado?}
+        B1 -->|No| B2[Crear CV]
+        B1 -->|Sí| B3[Editar CV existente]
+        B2 --> B4[Completar información obligatoria]
+        B3 --> B4
+        B4 --> B5[Completar información opcional]
+        B5 --> B6[Previsualizar CV]
+        B6 --> B7{¿Confirmar información?}
+        B7 -->|No| B4
+        B7 -->|Sí| B8[Guardar CV]
+    end
+    
+    subgraph "Búsqueda y Postulación"
+        B8 --> C1[Buscar vacantes]
+        C1 --> C2[Aplicar filtros]
+        C2 --> C3[Ver resultados]
+        C3 --> C4{¿Interesado en vacante?}
+        C4 -->|No| C1
+        C4 -->|Sí| C5{¿Guardar vacante?}
+        C5 -->|Sí| C6[Añadir a vacantes guardadas]
+        C5 -->|No| C7{¿Postularse?}
+        C6 --> C7
+        C7 -->|No| C1
+        C7 -->|Sí| C8[Seleccionar CV]
+        C8 --> C9[Redactar carta de presentación]
+        C9 --> C10[Enviar postulación]
+        C10 --> C11[Recibir confirmación]
+        C11 --> C12[Ver estado de postulación]
+    end
+    
+    subgraph "Gestión de Notificaciones"
+        C12 --> D1[Configurar notificaciones]
+        D1 --> D2[Recibir actualizaciones]
+        D2 --> D3{¿Cambio en estado de postulación?}
+        D3 -->|Sí| D4[Recibir notificación]
+        D3 -->|No| D5{¿Nuevas vacantes de interés?}
+        D5 -->|Sí| D6[Recibir sugerencias]
+        D5 -->|No| D7[No hay notificaciones]
+        D4 --> D8[Ver detalles]
+        D6 --> D8
+        D8 --> C1
+    end

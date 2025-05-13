@@ -1,0 +1,114 @@
+classDiagram
+
+class Sistema {
+  <<Sistema>>
+}
+
+class Interesado {
+  <<Actor>>
+}
+
+class Reclutador {
+  <<Actor>>
+}
+
+class Administrador {
+  <<Actor>>
+}
+
+class CU_I_1 {
+  Gestión de Perfil del Interesado
+  <<Caso de Uso>>
+}
+
+class CU_I_2 {
+  Gestión del Currículum Vitae
+  <<Caso de Uso>>
+}
+
+class CU_I_3 {
+  Búsqueda de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_I_4 {
+  Postulación a Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_I_5 {
+  Gestión de Vacantes Guardadas
+  <<Caso de Uso>>
+}
+
+class CU_I_6 {
+  Gestión de Notificaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_1 {
+  Gestión de Perfil del Reclutador
+  <<Caso de Uso>>
+}
+
+class CU_R_2 {
+  Gestión del Perfil de la Secretaría
+  <<Caso de Uso>>
+}
+
+class CU_R_3 {
+  Gestión de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_R_4 {
+  Gestión de Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_5 {
+  Búsqueda de Candidatos
+  <<Caso de Uso>>
+}
+
+class CU_A_1 {
+  Gestión de Usuarios
+  <<Caso de Uso>>
+}
+
+class CU_A_2 {
+  Gestión de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_A_3 {
+  Gestión de Categorías y Habilidades
+  <<Caso de Uso>>
+}
+
+class CU_A_4 {
+  Reportes y Estadísticas
+  <<Caso de Uso>>
+}
+
+Interesado --> CU_I_1
+Interesado --> CU_I_2
+Interesado --> CU_I_3
+Interesado --> CU_I_4
+Interesado --> CU_I_5
+Interesado --> CU_I_6
+
+Reclutador --> CU_R_1
+Reclutador --> CU_R_2
+Reclutador --> CU_R_3
+Reclutador --> CU_R_4
+Reclutador --> CU_R_5
+
+Administrador --> CU_A_1
+Administrador --> CU_A_2
+Administrador --> CU_A_3
+Administrador --> CU_A_4
+
+Sistema --> Interesado : Interactúa
+Sistema --> Reclutador : Interactúa
+Sistema --> Administrador : Interactúa

@@ -1,0 +1,155 @@
+classDiagram
+
+class CU_R_1 {
+  Gestión de Perfil del Reclutador
+  <<Caso de Uso>>
+}
+
+class CU_R_1_1 {
+  Registrarse en el Sistema
+  <<Caso de Uso>>
+}
+
+class CU_R_1_2 {
+  Iniciar Sesión
+  <<Caso de Uso>>
+}
+
+class CU_R_1_3 {
+  Recuperar Contraseña
+  <<Caso de Uso>>
+}
+
+class CU_R_1_4 {
+  Cerrar Sesión
+  <<Caso de Uso>>
+}
+
+class CU_R_2 {
+  Gestión del Perfil de la Secretaría
+  <<Caso de Uso>>
+}
+
+class CU_R_2_1 {
+  Crear/Editar Perfil de Secretaría
+  <<Caso de Uso>>
+}
+
+class CU_R_3 {
+  Gestión de Vacantes
+  <<Caso de Uso>>
+}
+
+class CU_R_3_1 {
+  Publicar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_R_3_2 {
+  Guardar Borrador de Vacante
+  <<Caso de Uso>>
+}
+
+class CU_R_3_3 {
+  Editar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_R_3_4 {
+  Eliminar Vacante
+  <<Caso de Uso>>
+}
+
+class CU_R_4 {
+  Gestión de Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_4_1 {
+  Ver Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_4_2 {
+  Filtrar Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_4_3 {
+  Ordenar Postulaciones
+  <<Caso de Uso>>
+}
+
+class CU_R_4_4 {
+  Ver Perfil del Candidato
+  <<Caso de Uso>>
+}
+
+class CU_R_4_5 {
+  Cambiar Estado de Postulación
+  <<Caso de Uso>>
+}
+
+class CU_R_4_6 {
+  Enviar Mensaje al Candidato
+  <<Caso de Uso>>
+}
+
+class CU_R_4_7 {
+  Descargar CV del Candidato
+  <<Caso de Uso>>
+}
+
+class CU_R_5 {
+  Búsqueda de Candidatos
+  <<Caso de Uso>>
+}
+
+class CU_R_5_1 {
+  Buscar Candidatos por Criterios
+  <<Caso de Uso>>
+}
+
+class CU_R_5_2 {
+  Contactar Candidato
+  <<Caso de Uso>>
+}
+
+class Reclutador {
+  <<Actor>>
+}
+
+class Administrador {
+  <<Actor>>
+}
+
+Reclutador --> CU_R_1
+Reclutador --> CU_R_2
+Reclutador --> CU_R_3
+Reclutador --> CU_R_4
+Reclutador --> CU_R_5
+
+Administrador --> CU_R_1_1 : Aprueba
+
+CU_R_1 --> CU_R_1_1
+CU_R_1 --> CU_R_1_2
+CU_R_1 --> CU_R_1_3
+CU_R_1 --> CU_R_1_4
+
+CU_R_2 --> CU_R_2_1
+
+CU_R_3 --> CU_R_3_1
+CU_R_3 --> CU_R_3_2
+CU_R_3 --> CU_R_3_3
+CU_R_3 --> CU_R_3_4
+
+CU_R_4 --> CU_R_4_1
+CU_R_4 --> CU_R_4_2
+CU_R_4 --> CU_R_4_3
+CU_R_4 --> CU_R_4_4
+CU_R_4 --> CU_R_4_5
+CU_R_4 --> CU_R_4_6
+CU_R_4 --> CU_R_4_7
+
+CU_R_5 --> CU_R_5_1
+CU_R_5 --> CU_R_5_2

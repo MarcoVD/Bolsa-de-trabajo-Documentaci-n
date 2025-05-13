@@ -1,0 +1,66 @@
+sequenceDiagram
+    actor UI as Usuario Interesado
+    participant S as Sistema
+    participant BD as Base de Datos
+    participant E as Servidor Email
+    
+    %% Proceso de Registro
+    UI->>S: Solicita registrarse
+    S->>UI: Muestra formulario de registro
+    UI->>S: Completa información personal y envía
+    S->>S: Valida información (nombre, email, contraseña)
+    S->>BD: Verifica si el correo ya existe
+    BD->>S: Respuesta de verificación
+    
+    alt Correo ya registrado
+        S->>UI: Notifica que el correo ya está en uso
+    else Correo disponible
+        S->>BD: Guarda información de usuario
+        BD->>S: Confirma guardado
+        S->>E: Solicita envío de correo de confirmación
+        E->>UI: Envía correo de confirmación
+        S->>UI: Notifica registro exitoso
+        
+        %% Confirmación de cuenta
+        UI->>S: Accede al enlace de confirmación
+        S->>BD: Activa cuenta de usuario
+        BD->>S: Confirma activación
+        S->>UI: Notifica activación exitosa
+    end
+    
+    %% Proceso de Inicio de Sesión
+    UI->>S: Solicita iniciar sesión
+    S->>UI: Muestra formulario de inicio de sesión
+    UI->>S: Ingresa correo y contraseña
+    S->>BD: Verifica credenciales
+    BD->>S: Respuesta de verificación
+    
+    alt Credenciales incorrectas
+        S->>UI: Notifica error de autenticación
+    else Credenciales correctas
+        S->>BD: Registra inicio de sesión
+        BD->>S: Confirma registro
+        S->>UI: Redirige al dashboard del usuario
+    end
+    
+    %% Proceso de Recuperación de Contraseña
+    UI->>S: Solicita recuperar contraseña
+    S->>UI: Muestra formulario de recuperación
+    UI->>S: Ingresa su correo electrónico
+    S->>BD: Verifica existencia del correo
+    BD->>S: Confirma existencia
+    S->>E: Solicita envío de correo con enlace de restablecimiento
+    E->>UI: Envía correo con enlace
+    UI->>S: Accede al enlace de restablecimiento
+    S->>UI: Muestra formulario de nueva contraseña
+    UI->>S: Ingresa y confirma nueva contraseña
+    S->>S: Valida fortaleza de contraseña
+    S->>BD: Actualiza contraseña
+    BD->>S: Confirma actualización
+    S->>UI: Notifica cambio exitoso
+    
+    %% Proceso de Cierre de Sesión
+    UI->>S: Solicita cerrar sesión
+    S->>BD: Registra cierre de sesión
+    BD->>S: Confirma registro
+    S->>UI: Redirige a la página principal

@@ -1,0 +1,73 @@
+sequenceDiagram
+    actor R as Reclutador
+    participant S as Sistema
+    participant BD as Base de Datos
+    participant A as Administrador
+    participant E as Servidor Email
+    
+    %% Registro de reclutador y secretaría
+    R->>S: Solicita registrarse como reclutador
+    S->>R: Muestra formulario de registro de secretaría
+    R->>S: Completa información de secretaría y personal
+    S->>S: Valida información proporcionada
+    S->>BD: Verifica si la secretaría/reclutador ya existe
+    BD->>S: Respuesta de verificación
+    
+    alt Ya existe registro
+        S->>R: Notifica que ya existe un registro
+    else Registro nuevo
+        S->>BD: Guarda información pendiente de aprobación
+        BD->>S: Confirma guardado
+        S->>A: Notifica nuevo registro pendiente
+        S->>R: Notifica registro en espera de aprobación
+        
+        %% Proceso de aprobación
+        A->>S: Revisa información de registro
+        A->>S: Aprueba registro de reclutador
+        S->>BD: Actualiza estado a "Aprobado"
+        BD->>S: Confirma actualización
+        S->>E: Solicita envío de notificación de aprobación
+        E->>R: Envía correo de aprobación
+    end
+    
+    %% Gestión del perfil de la secretaría
+    R->>S: Solicita editar perfil de secretaría
+    S->>BD: Consulta datos actuales
+    BD->>S: Retorna datos
+    S->>R: Muestra formulario con datos pre-cargados
+    R->>S: Actualiza información y envía
+    S->>S: Valida información actualizada
+    S->>BD: Guarda cambios
+    BD->>S: Confirma guardado
+    S->>R: Notifica actualización exitosa
+    
+    %% Gestión del logotipo
+    R->>S: Solicita cambiar logotipo
+    S->>R: Muestra interfaz de carga
+    R->>S: Sube nuevo logotipo
+    S->>S: Valida formato y tamaño
+    S->>BD: Guarda nuevo logotipo
+    BD->>S: Confirma guardado
+    S->>R: Muestra previsualización actualizada
+    
+    %% Configuración de datos de contacto
+    R->>S: Solicita editar datos de contacto
+    S->>BD: Consulta datos actuales
+    BD->>S: Retorna datos
+    S->>R: Muestra formulario con datos pre-cargados
+    R->>S: Actualiza información y envía
+    S->>S: Valida información
+    S->>BD: Guarda cambios
+    BD->>S: Confirma guardado
+    S->>R: Notifica actualización exitosa
+    
+    %% Cambio de contraseña
+    R->>S: Solicita cambiar contraseña
+    S->>R: Muestra formulario de cambio
+    R->>S: Ingresa contraseña actual y nueva
+    S->>BD: Verifica contraseña actual
+    BD->>S: Confirma verificación
+    S->>S: Valida fortaleza de nueva contraseña
+    S->>BD: Actualiza contraseña
+    BD->>S: Confirma actualización
+    S->>R: Notifica cambio exitoso

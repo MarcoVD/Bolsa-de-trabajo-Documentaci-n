@@ -1,0 +1,53 @@
+sequenceDiagram
+    actor UI as Usuario Interesado
+    participant S as Sistema
+    participant BD as Base de Datos
+    
+    %% Guardar una vacante
+    UI->>S: Visualiza detalle de vacante
+    S->>UI: Muestra información de la vacante
+    UI->>S: Selecciona "Guardar vacante"
+    S->>BD: Consulta si ya está guardada
+    BD->>S: Respuesta de consulta
+    
+    alt Vacante ya guardada
+        S->>UI: Notifica que ya está en favoritos
+    else Vacante no guardada
+        S->>BD: Registra vacante como guardada
+        BD->>S: Confirma registro
+        S->>UI: Notifica guardado exitoso
+    end
+    
+    %% Visualizar vacantes guardadas
+    UI->>S: Solicita ver vacantes guardadas
+    S->>BD: Consulta vacantes guardadas del usuario
+    BD->>S: Retorna lista de vacantes
+    S->>BD: Verifica estado actual de cada vacante
+    BD->>S: Retorna estado actualizado
+    S->>UI: Muestra lista de vacantes guardadas
+    
+    %% Eliminar vacante de guardadas
+    UI->>S: Selecciona eliminar vacante de guardadas
+    S->>BD: Elimina registro de vacante guardada
+    BD->>S: Confirma eliminación
+    S->>UI: Actualiza lista de vacantes guardadas
+    S->>UI: Notifica eliminación exitosa
+    
+    %% Recibir información sobre cambios en vacantes guardadas
+    Note over S,BD: Proceso de actualización (periódico)
+    S->>BD: Verifica cambios en vacantes guardadas
+    BD->>S: Retorna vacantes con cambios
+    
+    alt Hay vacantes con cambios
+        S->>UI: Marca vacantes con cambios en la interfaz
+        S->>UI: Notifica sobre los cambios detectados
+    end
+    
+    %% Postularse desde vacantes guardadas
+    UI->>S: Selecciona postularse a vacante guardada
+    S->>UI: Solicita seleccionar CV y carta presentación
+    UI->>S: Selecciona CV y envía carta
+    S->>BD: Registra postulación
+    BD->>S: Confirma registro
+    S->>UI: Confirma postulación exitosa
+    S->>UI: Actualiza estado en vacantes guardadas

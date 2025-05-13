@@ -1,0 +1,16 @@
+sequenceDiagram
+    actor UI as Usuario Interesado
+    participant S as Sistema
+    participant BD as Base de Datos
+    
+    UI->>S: Solicita crear/editar CV
+    S->>UI: Muestra formulario de CV
+    UI->>S: Completa información y envía
+    S->>S: Valida información
+    S->>BD: Guarda información de CV
+    BD->>S: Confirma guardado
+    S->>UI: Notifica guardado exitoso
+    UI->>S: Solicita previsualizar CV
+    S->>BD: Consulta datos del CV
+    BD->>S: Retorna datos
+    S->>UI: Muestra previsualización del CV

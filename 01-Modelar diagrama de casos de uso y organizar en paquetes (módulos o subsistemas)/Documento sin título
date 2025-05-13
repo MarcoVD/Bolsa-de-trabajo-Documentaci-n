@@ -1,0 +1,37 @@
+
+He creado un conjunto completo de diagramas Mermaid para representar los casos de uso de tu sistema de bolsa de trabajo, basándome en los requerimientos funcionales detallados que proporcionaste:
+
+Diagrama General de Casos de Uso: Muestra la visión general del sistema y los principales actores (Interesado, Reclutador y Administrador) con sus respectivos casos de uso principales.
+Casos de Uso del Interesado: Detalla todas las funcionalidades disponibles para los usuarios que buscan trabajo, incluyendo gestión del perfil, currículum, búsqueda de vacantes, postulaciones y notificaciones.
+Casos de Uso del Reclutador: Representa las funcionalidades para los reclutadores, como gestión de perfil, publicación de vacantes, gestión de postulaciones y búsqueda de candidatos.
+Casos de Uso del Administrador: Muestra las funcionalidades administrativas del sistema, incluyendo gestión de usuarios, vacantes, categorías/habilidades y generación de reportes.
+Diagrama de Secuencia del Interesado: Ilustra el flujo de interacciones para las principales funcionalidades del interesado (registro, inicio de sesión, creación de CV, búsqueda de vacantes y postulación).
+Diagrama de Secuencia del Reclutador: Representa el flujo de interacciones para las principales funcionalidades del reclutador (registro, creación de perfil, publicación de vacantes y gestión de postulaciones).
+Diagrama de Secuencia del Administrador: Muestra el flujo de interacciones para las principales funcionalidades administrativas (gestión de usuarios, vacantes, categorías/habilidades y reportes).
+
+Estos diagramas Mermaid pueden ser utilizados directamente en tu documentación técnica o convertidos a imágenes para incorporarlos en tu propuesta de desarrollo o especificación de requisitos. Cada diagrama proporciona una representación visual clara de los requisitos funcionales del sistema, lo que facilita la comprensión y comunicación entre los equipos de desarrollo, diseño y stakeholders.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+Desarrollar el diagrama de flujos de eventos para los casos de uso identificados 
+
+Comprendo que estás en la fase inicial de desarrollo de una página web tipo "bolsa de trabajo" y necesitas diagramas de flujo para los casos de uso identificados en formato Mermaid. 
+
+Para crear estos diagramas de flujo, necesitaría conocer los requerimientos o casos de uso que has identificado para tu bolsa de trabajo. Sin embargo, no veo ninguna lista de requerimientos adjunta a tu mensaje. 
+
+¿Podrías compartir la lista de requerimientos o casos de uso que mencionas para que pueda desarrollar los diagramas de flujo correspondientes? Algunos casos de uso típicos en una bolsa de trabajo incluyen: 
+
+    Registro de usuarios (empresas y candidatos) 
+
+    Publicación de ofertas de trabajo 
+
+    Búsqueda de empleos 
+
+    Postulación a ofertas 
+
+    Gestión de perfiles 
+
+    Comunicación entre empresas y candidatos 
+
+Una vez que me compartas estos requerimientos, podré crear los diagramas de flujo en formato Mermaid según lo solicitado. 

@@ -1,0 +1,62 @@
+
+flowchart TD
+    subgraph "Gestión de Perfil del Reclutador"
+        R1[Inicio] --> R2{¿Usuario registrado?}
+        R2 -->|No| R3[Registrarse como reclutador]
+        R2 -->|Sí| R4[Iniciar sesión]
+        R3 --> R5[Completar formulario de registro]
+        R5 --> R6[Ingresar datos de la secretaría]
+        R6 --> R7[Sistema valida datos]
+        R7 -->|Datos inválidos| R5
+        R7 -->|Datos válidos| R8[Enviar a aprobación]
+        R8 --> R9[Esperar aprobación del administrador]
+        R9 -->|Aprobado| R10[Recibir notificación de aprobación]
+        R9 -->|Rechazado| R11[Recibir notificación de rechazo]
+        R10 --> R4
+        R4 --> R12[Acceder al dashboard]
+        R12 --> R13[Editar perfil de secretaría]
+        R13 --> R14[Guardar cambios]
+    end
+    
+    subgraph "Publicación de Vacantes"
+        R14 --> P1[Crear nueva vacante]
+        P1 --> P2[Completar información básica]
+        P2 --> P3[Añadir requisitos]
+        P3 --> P4[Establecer fechas y límites]
+        P4 --> P5{¿Publicar ahora?}
+        P5 -->|No| P6[Guardar como borrador]
+        P5 -->|Sí| P7[Enviar a aprobación]
+        P6 --> P8{¿Editar borrador?}
+        P8 -->|Sí| P2
+        P7 --> P9[Esperar aprobación del administrador]
+        P9 -->|Aprobado| P10[Vacante publicada]
+        P9 -->|Rechazado| P11[Recibir notificación de rechazo]
+        P11 --> P2
+    end
+    
+    subgraph "Gestión de Postulaciones"
+        P10 --> G1[Ver lista de postulantes]
+        G1 --> G2[Aplicar filtros]
+        G2 --> G3[Ver detalles del candidato]
+        G3 --> G4[Descargar CV]
+        G3 --> G5{¿Actualizar estado?}
+        G5 -->|No| G1
+        G5 -->|Sí| G6[Cambiar estado de postulación]
+        G6 --> G7[Sistema notifica al candidato]
+        G7 --> G8{¿Contactar candidato?}
+        G8 -->|No| G1
+        G8 -->|Sí| G9[Enviar mensaje al candidato]
+        G9 --> G1
+    end
+    
+    subgraph "Búsqueda de Candidatos"
+        G1 --> B1[Buscar candidatos]
+        B1 --> B2[Aplicar filtros]
+        B2 --> B3[Ver resultados]
+        B3 --> B4[Ver perfil de candidato]
+        B4 --> B5{¿Contactar candidato?}
+        B5 -->|Sí| B6[Enviar mensaje]
+        B5 -->|No| B7{¿Invitar a postularse?}
+        B7 -->|Sí| B8[Enviar invitación]
+        B7 -->|No| B1
+    end

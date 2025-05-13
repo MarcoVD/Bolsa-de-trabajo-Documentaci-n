@@ -1,0 +1,18 @@
+sequenceDiagram
+    actor R as Reclutador
+    participant S as Sistema
+    participant BD as Base de Datos
+    participant A as Administrador
+    
+    R->>S: Solicita publicar vacante
+    S->>R: Muestra formulario de vacante
+    R->>S: Completa formulario y envía
+    S->>S: Valida información
+    S->>BD: Guarda vacante como pendiente
+    BD->>S: Confirma guardado
+    S->>A: Notifica nueva vacante pendiente
+    A->>S: Revisa vacante
+    A->>S: Aprueba publicación
+    S->>BD: Actualiza estado a "Publicada"
+    BD->>S: Confirma actualización
+    S->>R: Notifica aprobación de vacante

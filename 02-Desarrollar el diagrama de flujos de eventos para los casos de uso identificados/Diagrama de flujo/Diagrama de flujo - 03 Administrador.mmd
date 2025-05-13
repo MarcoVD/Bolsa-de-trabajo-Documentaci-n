@@ -1,0 +1,91 @@
+flowchart TD
+    subgraph "Gestión de Usuarios"
+        A1[Inicio] --> A2[Iniciar sesión como Administrador]
+        A2 --> A3[Acceder al panel de administración]
+        A3 --> A4[Gestionar usuarios]
+        A4 --> A5{¿Qué acción realizar?}
+        A5 -->|Ver usuarios| A6[Listar todos los usuarios]
+        A5 -->|Crear usuario| A7[Añadir nuevo usuario]
+        A5 -->|Editar usuario| A8[Modificar datos de usuario]
+        A5 -->|Eliminar usuario| A9[Eliminar cuenta de usuario]
+        A5 -->|Activar/Desactivar| A10[Cambiar estado de cuenta]
+        A5 -->|Asignar roles| A11[Modificar permisos de usuario]
+        A6 --> A12[Filtrar por tipo de usuario]
+        A7 --> A13[Completar formulario]
+        A13 --> A14[Guardar cambios]
+        A8 --> A15[Seleccionar usuario]
+        A15 --> A16[Modificar datos]
+        A16 --> A14
+        A9 --> A17[Confirmar eliminación]
+        A10 --> A18[Cambiar estado]
+        A11 --> A19[Asignar nuevo rol]
+        A19 --> A14
+    end
+    
+    subgraph "Gestión de Vacantes"
+        A3 --> B1[Gestionar vacantes]
+        B1 --> B2{¿Qué acción realizar?}
+        B2 -->|Ver vacantes| B3[Listar todas las vacantes]
+        B2 -->|Aprobar/Rechazar| B4[Revisar nuevas vacantes]
+        B2 -->|Editar vacante| B5[Modificar datos de vacante]
+        B2 -->|Eliminar vacante| B6[Eliminar vacante]
+        B2 -->|Destacar vacante| B7[Marcar como destacada]
+        B3 --> B8[Filtrar por estado/categoría]
+        B4 --> B9[Ver detalles de vacante]
+        B9 --> B10{¿Aprobar vacante?}
+        B10 -->|Sí| B11[Cambiar estado a aprobada]
+        B10 -->|No| B12[Rechazar y añadir comentario]
+        B11 --> B13[Sistema notifica al reclutador]
+        B12 --> B13
+        B5 --> B14[Modificar información]
+        B14 --> B15[Guardar cambios]
+        B6 --> B16[Confirmar eliminación]
+        B7 --> B17[Marcar como destacada]
+    end
+    
+    subgraph "Gestión de Categorías y Habilidades"
+        A3 --> C1[Gestionar catálogos]
+        C1 --> C2{¿Qué catálogo gestionar?}
+        C2 -->|Categorías| C3[Gestionar categorías de trabajo]
+        C2 -->|Habilidades| C4[Gestionar habilidades]
+        C3 --> C5{¿Qué acción realizar?}
+        C5 -->|Crear| C6[Añadir nueva categoría]
+        C5 -->|Editar| C7[Modificar categoría]
+        C5 -->|Eliminar| C8[Eliminar categoría]
+        C6 --> C9[Completar información]
+        C9 --> C10[Guardar cambios]
+        C7 --> C11[Seleccionar categoría]
+        C11 --> C12[Modificar datos]
+        C12 --> C10
+        C8 --> C13[Confirmar eliminación]
+        C4 --> C14{¿Qué acción realizar?}
+        C14 -->|Crear| C15[Añadir nueva habilidad]
+        C14 -->|Editar| C16[Modificar habilidad]
+        C14 -->|Eliminar| C17[Eliminar habilidad]
+        C14 -->|Asignar| C18[Asignar a categoría]
+        C15 --> C19[Completar información]
+        C19 --> C20[Guardar cambios]
+        C16 --> C21[Seleccionar habilidad]
+        C21 --> C22[Modificar datos]
+        C22 --> C20
+        C17 --> C23[Confirmar eliminación]
+        C18 --> C24[Seleccionar categoría]
+        C24 --> C25[Seleccionar habilidades]
+        C25 --> C20
+    end
+    
+    subgraph "Reportes y Estadísticas"
+        A3 --> D1[Gestionar reportes]
+        D1 --> D2{¿Qué reporte generar?}
+        D2 -->|Usuarios| D3[Reporte de usuarios registrados]
+        D2 -->|Vacantes| D4[Reporte de vacantes]
+        D2 -->|Postulaciones| D5[Reporte de postulaciones]
+        D3 --> D6[Aplicar filtros]
+        D4 --> D6
+        D5 --> D6
+        D6 --> D7[Generar reporte]
+        D7 --> D8{¿Exportar reporte?}
+        D8 -->|Sí| D9[Seleccionar formato]
+        D9 --> D10[Descargar reporte]
+        D8 -->|No| D11[Visualizar en pantalla]
+    end

@@ -1,0 +1,5 @@
+﻿Diagramas de Flujo (Flowcharts)
+    1. Diagrama de Flujo - Interesado/Candidato: Muestra el flujo completo desde el registro hasta la gestión de notificaciones, incluyendo la creación del CV, búsqueda de vacantes y postulación. 
+    2. Diagrama de Flujo - Reclutador: Ilustra el proceso de registro, gestión del perfil de la secretaría, publicación de vacantes y gestión de postulaciones. 
+    3. Diagrama de Flujo - Administrador: Presenta los procesos de gestión de usuarios, vacantes, categorías, habilidades y reportes.
+
